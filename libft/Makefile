@@ -56,19 +56,25 @@ OBJ = $(SRC:.c=.o)
 
 B_OBJ = $(B_SRC:.c=.o)
 
+MSG1 = @echo "\e[1;32m Compiled Successfully ✔︎ \e[0m"
+MSG2 = @echo "\033[93m Cleaned Successfully ✔︎ \e[0m"
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
+	$(MSG1)
 
 bonus: $(B_OBJ)
 	ar -rcs $(NAME) $(B_OBJ)
+	$(MSG1)
 
 clean:
 	/bin/rm -f $(OBJ) $(B_OBJ)
+	$(MSG2)
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	$(MSG2)
 
 re: fclean all
