@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:57:51 by dimarque          #+#    #+#             */
-/*   Updated: 2022/11/15 19:44:49 by dimarque         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:05:40 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <limits.h>
 # include <stdio.h>
 # include <ctype.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_atoi(const char *str); //										28/10
 void	ft_bzero(void *s, size_t n);
@@ -53,6 +59,20 @@ void	ft_putchar_fd(char c, int fd); //									11/11
 void	ft_putstr_fd(char *s, int fd); //									11/11
 void	ft_putnbr_fd(int n, int fd); //										11/11
 void	ft_putendl_fd(char *s, int fd); //									11/11
-char	**ft_split(char const *str, char c); 
+char	**ft_split(char const *str, char c); //								16/11
+char	*ft_itoa(int n); //													16/11
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char)); //		18/11
+void	ft_striteri(char *str, void (*f)(unsigned int, char *)); //			18/11
+
+// bonus
+t_list	*ft_lstnew(void *content); //										18/11
+void	ft_lstadd_front(t_list **lst, t_list *new); //						18/11
+int		ft_lstsize(t_list *lst); //											18/11
+t_list	*ft_lstlast(t_list *lst); //										21/11
+void	ft_lstadd_back(t_list **lst, t_list *new); //						21/11
+void	ft_lstdelone(t_list *lst, void (*del)(void *)); //					21/11
+void	ft_lstclear(t_list **lst, void (*del)(void *)); //					21/11
+void	ft_lstiter(t_list *lst, void (*f)(void *)); //						21/11
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)); //21/11
 
 #endif

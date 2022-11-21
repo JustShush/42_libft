@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 17:28:36 by dimarque          #+#    #+#             */
-/*   Updated: 2022/11/18 16:27:44 by dimarque         ###   ########.fr       */
+/*   Created: 2022/11/18 14:37:15 by dimarque          #+#    #+#             */
+/*   Updated: 2022/11/18 15:51:08 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 {
-	write(fd, &c, 1);
+	char	*res;
+	int		i;
+
+	i = 0;
+	res = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (!res)
+		return (NULL);
+	while (str[i] != '\0')
+	{
+		res[i] = f(i, str[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }
 
-/* int	main(void)
+/* char	f(unsigned int i, char c)
 {
-	ft_putchar_fd('d', 1);
+	i++;
+	c = 'D';
+	return (c);
+}
 
+int	main(void)
+{
+	char *str = "leite-teste-ola";
+	printf("%s\n", ft_strmapi(str, f));
 	return (0);
 } */

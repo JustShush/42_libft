@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:43:57 by dimarque          #+#    #+#             */
-/*   Updated: 2022/11/16 17:40:09 by dimarque         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:58:54 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,6 @@ static int	ft_numblen(int n)
 		len++;
 	}
 	return (len);
-}
-
-static int	ft_putnbr(int n)
-{
-	if (n == -2147483648)
-	{
-		n /= 10 * -1;
-		return (n);
-	}
-	if (n < 0)
-		n *= -1;
-	return (n + '0');
 }
 
 char	*ft_itoa(int n)
@@ -65,8 +53,9 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	printf("%s\n", ft_itoa(-2147483648));
 	return (0);
 }
+ */

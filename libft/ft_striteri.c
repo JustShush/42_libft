@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 17:28:36 by dimarque          #+#    #+#             */
-/*   Updated: 2022/11/18 16:27:44 by dimarque         ###   ########.fr       */
+/*   Created: 2022/11/18 15:46:52 by dimarque          #+#    #+#             */
+/*   Updated: 2022/11/18 16:21:45 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_striteri(char *str, void (*f)(unsigned int, char *))
 {
-	write(fd, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		f(i, &str[i]);
+		i++;
+	}
 }
 
-/* int	main(void)
+/* char	f(unsigned int i, char c)
 {
-	ft_putchar_fd('d', 1);
+	i++;
+	c = 'D';
+	return (c);
+}
 
+int	main(void)
+{
+	char *str = "leite-teste-ola";
+	ft_striteri(str, f);
 	return (0);
 } */
